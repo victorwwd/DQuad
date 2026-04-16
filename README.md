@@ -1,6 +1,5 @@
 
 <p align="center">
-  <img src="assets/DQuadLOGO2.png" alt="DQuad Logo" width="128">
   <h1 align="center">DQuad</h1>
   <p align="center">Windows 四象限文件管理器</p>
   <p align="center">
