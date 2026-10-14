@@ -9,7 +9,6 @@
     <a href="#features">Features</a> •
     <a href="#usage">Usage</a> •
     <a href="#configuration">Configuration</a> •
-    <a href="#build">Build</a> •
     <a href="#license">License</a>
   </p>
 </p>
@@ -47,7 +46,7 @@ A lightweight Windows file manager with flexible multi-pane layouts, tabs, bookm
 
 ## Usage
 
-Just run `DQuad.exe`.
+Download the latest `DQuad.exe` from [Releases](https://github.com/victorwwd/DQuad/releases), then run it directly — no installation required.
 
 ### Keyboard shortcuts
 
@@ -135,40 +134,6 @@ enabled=1
 ```
 
 Security policy: `confirm=1` always requires confirmation before execution; even when confirmation is not forced, a command containing high-risk keywords (`del`, `rd`, `format`, etc.) still triggers a confirmation prompt.
-
-## Build
-
-### Requirements
-
-- **Compiler**: MinGW-w64 (GCC) or Clang (recommended — faster)
-- **Build system**: CMake + Ninja
-- **OS**: Windows 7+
-
-### Compiling
-
-```powershell
-# GCC build
-.\scripts\build.ps1                           # Debug build (default)
-.\scripts\build.ps1 -Configuration Release    # Release build
-
-# Clang build (recommended)
-.\scripts\build-clang.ps1                          # Debug build (default)
-.\scripts\build-clang.ps1 -Configuration Release   # Release build
-
-# Clean build (delete the build directory and rebuild)
-.\scripts\build.ps1 -Clean
-.\scripts\build-clang.ps1 -Clean
-```
-
-### Static analysis
-
-```powershell
-# clang-tidy checks
-.\tests\clang-tidy\tidy.ps1
-
-# Cppcheck (includes MISRA C rules)
-.\tests\cppcheck\cppcheck_run.ps1
-```
 
 ## License
 

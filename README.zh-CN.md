@@ -9,7 +9,6 @@
     <a href="#功能特性">功能</a> •
     <a href="#使用">使用</a> •
     <a href="#配置">配置</a> •
-    <a href="#构建">构建</a> •
     <a href="#许可证">许可证</a>
   </p>
 </p>
@@ -47,7 +46,7 @@
 
 ## 使用
 
-直接运行 `DQuad.exe` 即可。
+从 [Releases](https://github.com/victorwwd/DQuad/releases) 下载最新版 `DQuad.exe`，直接运行即可，无需安装。
 
 ### 快捷键
 
@@ -135,40 +134,6 @@ enabled=1
 ```
 
 安全策略：`confirm=1` 时强制执行前确认；未强制确认时，若命令包含高风险关键词（`del`、`rd`、`format` 等）也会弹确认。
-
-## 构建
-
-### 依赖
-
-- **编译器**: MinGW-w64 (GCC) 或 Clang（推荐，速度快）
-- **构建系统**: CMake + Ninja
-- **系统**: Windows 7+
-
-### 编译
-
-```powershell
-# GCC 编译
-.\scripts\build.ps1                           # Debug 构建（默认）
-.\scripts\build.ps1 -Configuration Release    # Release 构建
-
-# Clang 编译（推荐）
-.\scripts\build-clang.ps1                          # Debug 构建（默认）
-.\scripts\build-clang.ps1 -Configuration Release   # Release 构建
-
-# 全新编译（删除 build 目录后重建）
-.\scripts\build.ps1 -Clean
-.\scripts\build-clang.ps1 -Clean
-```
-
-### 静态分析
-
-```powershell
-# clang-tidy 检查
-.\tests\clang-tidy\tidy.ps1
-
-# Cppcheck 检查（含 MISRA C 规则）
-.\tests\cppcheck\cppcheck_run.ps1
-```
 
 ## 许可证
 
