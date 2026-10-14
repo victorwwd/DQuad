@@ -1,171 +1,175 @@
+<p align="right">
+  <b>English</b> · <a href="README.zh-CN.md">简体中文</a>
+</p>
+
 <p align="center">
   <h1 align="center">DQuad</h1>
-  <p align="center">Windows 多面板文件管理器</p>
+  <p align="center">Multi-pane file manager for Windows</p>
   <p align="center">
-    <a href="#功能特性">功能</a> •
-    <a href="#使用">使用</a> •
-    <a href="#配置">配置</a> •
-    <a href="#构建">构建</a> •
-    <a href="#许可证">许可证</a>
+    <a href="#features">Features</a> •
+    <a href="#usage">Usage</a> •
+    <a href="#configuration">Configuration</a> •
+    <a href="#build">Build</a> •
+    <a href="#license">License</a>
   </p>
 </p>
 
 ---
 
-一款轻量级 Windows 文件管理器，支持多面板灵活布局、多标签页、书签管理、文件标签、Everything 全盘搜索和 UNC 网络路径访问。
+A lightweight Windows file manager with flexible multi-pane layouts, tabs, bookmark management, file tags, Everything-powered whole-disk search, and UNC network path access.
 
 <img width="1920" height="1040" alt="image" src="https://github.com/user-attachments/assets/3aeee169-961e-42d3-9a60-baa46f8e0b00" />
 
-## 功能特性
+## Features
 
-- **灵活布局** — 8 种布局模式：单象限 / 双象限（水平/垂直）/ 三象限（4 种变体）/ 四象限 2×2（默认），通过视图菜单切换
-- **多标签页** — 每个面板独立标签页，支持新建/关闭/切换、拖拽排序、复制标签页、关闭其他、历史记录导航
-- **书签管理** — 支持分组、拖拽排序、导入/导出
-- **文件标签** — 基于 NTFS ADS 的文件标签系统，支持颜色/分组、标签管理器、按标签筛选、按标签查找文件
-- **Everything 搜索** — 集成 Everything 全盘搜索引擎（`Ctrl+F`，或地址栏右侧搜索按钮：左键当前目录、右键全盘），支持正则/大小写/整词匹配，结果双击打开或定位所在目录
-- **图片预览** — 大图标视图下异步加载图片缩略图，视口感知渐进式加载
-- **面包屑导航** — 分段路径显示，点击跳转到任意父目录，右键支持编辑路径/复制路径/粘贴路径
-- **文件操作** — 复制、剪切、粘贴、删除、重命名，支持跨面板文件拖拽，无文件数量限制
-- **视图切换** — 详细信息 / 大图标两种视图模式
-- **左侧导航** — "此电脑"磁盘树（含空间进度条、USB 热插拔自动刷新）和回收站（支持还原）
-- **新建文件** — 支持创建 txt/md/py/bat/ps1/c/h 及 Office 文档（docx/xlsx/pptx），集成 Shell 新建菜单
-- **自定义命令** — 可配置快捷命令菜单，支持占位符替换，提供图形化命令编辑器（增删改查/排序/复制）
-- **系统集成** — 原生右键菜单，带超时保护避免第三方 Shell 扩展卡死主窗口；复制路径、发送到桌面快捷方式/U盘
-- **UNC 网络路径** — 支持 `\\server\share` 路径访问，异步可达性检查
-- **加密文件检测** — 异步检测加密软件加密的文件，锁图标标记
-- **目录监控** — 文件变化自动刷新（基于 `ReadDirectoryChangesW`）
-- **设置对话框** — 会话恢复、默认路径、右键菜单预加载、自动更新等选项
-- **状态持久化** — 自动保存窗口布局、标签页状态和视图设置
-- **崩溃保护** — VEH/UEH 异常捕获 + 看门狗卡死检测，自动生成 minidump
-- **自动更新** — 支持从 GitHub 检查并下载新版本
-- **深浅色主题** — 窗口标题栏跟随系统深浅色主题
-- **单实例运行** — 避免重复启动
+- **Flexible layouts** — 8 layout modes: single pane / two panes (horizontal or vertical) / three panes (4 variants) / four panes 2×2 (default), switchable from the View menu
+- **Tabs** — An independent tab bar per pane, with new/close/switch, drag-to-reorder, duplicate tab, close others, and history navigation
+- **Bookmarks** — Grouping, drag-to-reorder, import/export
+- **File tags** — NTFS ADS–based file tagging with colors and groups, a tag manager, filter by tag, and find files by tag
+- **Everything search** — Integrated Everything whole-disk search engine (`Ctrl+F`, or the search button at the right of the address bar: left-click searches the current folder, right-click searches all drives). Supports regex, case-sensitive, and whole-word matching; double-click a result to open it or reveal its folder
+- **Image preview** — Asynchronous image thumbnail loading in large-icon view, with viewport-aware progressive loading
+- **Breadcrumb navigation** — Segmented path display; click any parent folder to jump to it, right-click to edit, copy, or paste a path
+- **File operations** — Copy, cut, paste, delete, and rename, plus cross-pane file drag & drop, with no limit on the number of files
+- **View modes** — Details and large icons
+- **Left navigation** — "This PC" drive tree (with free-space bars and automatic refresh on USB hot-plug) and Recycle Bin (with restore)
+- **New file** — Create txt/md/py/bat/ps1/c/h files and Office documents (docx/xlsx/pptx), integrating the Shell "New" menu
+- **Custom commands** — A configurable quick-command menu with placeholder substitution and a graphical command editor (add/edit/delete/reorder/duplicate)
+- **Shell integration** — Native context menus with timeout protection so third-party Shell extensions cannot hang the main window; copy path, send to desktop shortcut / USB drive
+- **UNC network paths** — Access `\\server\share` paths, with asynchronous reachability checks
+- **Encrypted file detection** — Asynchronously detects files encrypted by encryption software and marks them with a lock icon
+- **Directory monitoring** — Automatic refresh on file changes (via `ReadDirectoryChangesW`)
+- **Settings dialog** — Session restore, default paths, context-menu preloading, automatic updates, and more
+- **State persistence** — Window layout, tab state, and view settings are saved automatically
+- **Crash protection** — VEH/UEH exception handling plus watchdog hang detection, with automatic minidump generation
+- **Automatic updates** — Check for and download new releases from GitHub
+- **Light/dark theme** — The window title bar follows the system light/dark theme
+- **Single instance** — Prevents duplicate launches
 
-## 使用
+## Usage
 
-直接运行 `DQuad.exe` 即可。
+Just run `DQuad.exe`.
 
-### 快捷键
+### Keyboard shortcuts
 
-| 按键 | 功能 |
-|------|------|
-| `Ctrl+T` | 新建标签页 |
-| `Ctrl+Shift+T` | 给选中文件设置标签 |
-| `Ctrl+W` | 关闭标签页 |
-| `Ctrl+D` | 添加当前路径到书签 |
-| `Ctrl+B` | 显示/隐藏书签面板 |
-| `Ctrl+F` | 打开 Everything 搜索 |
-| `Ctrl+C/X/V` | 复制/剪切/粘贴 |
-| `Ctrl+Shift+C` | 复制选中项完整路径（无选中时复制当前目录） |
-| `Ctrl+A` | 全选 |
-| `F2` | 重命名 |
-| `F5` | 刷新 |
-| `Del` | 删除到回收站 |
-| `Shift+Del` | 永久删除 |
-| `Enter` | 打开选中文件/目录 |
-| `ESC` | 关闭搜索对话框 |
-| `Alt+F4` | 退出 |
+| Shortcut | Action |
+|----------|--------|
+| `Ctrl+T` | New tab |
+| `Ctrl+Shift+T` | Set a tag on the selected file |
+| `Ctrl+W` | Close tab |
+| `Ctrl+D` | Add the current path to bookmarks |
+| `Ctrl+B` | Show/hide the bookmarks panel |
+| `Ctrl+F` | Open Everything search |
+| `Ctrl+C/X/V` | Copy / cut / paste |
+| `Ctrl+Shift+C` | Copy the full path of the selection (copies the current folder when nothing is selected) |
+| `Ctrl+A` | Select all |
+| `F2` | Rename |
+| `F5` | Refresh |
+| `Del` | Delete to Recycle Bin |
+| `Shift+Del` | Delete permanently |
+| `Enter` | Open the selected file/folder |
+| `ESC` | Close the search dialog |
+| `Alt+F4` | Exit |
 
-### 鼠标操作
+### Mouse actions
 
-| 操作 | 区域 | 功能 |
-|------|------|------|
-| 双击标签页 | 标签栏 | 关闭该标签页 |
-| 单击空白处 | 标签栏 | 新建标签页 |
-| 右键标签页 | 标签栏 | 关闭/关闭其他/复制标签页 |
-| 拖拽标签页 | 标签栏 | 跨面板拖拽排序 |
-| 双击文件 | 文件列表 | 用系统默认程序打开 |
-| 双击文件夹 | 文件列表 | 进入该文件夹 |
-| 双击空白处 | 文件列表 | 返回上级目录 |
-| 右键空白处 | 文件列表 | 新建/粘贴/刷新/按标签筛选 |
-| 右键文件 | 文件列表 | 复制/剪切/删除/重命名/复制路径/标签勾选/属性 |
-| 拖拽文件 | 跨面板 | 跨面板文件拖拽 |
-| 拖拽书签 | 书签树 | 移动书签到分组 |
-| 右键面包屑 | 面包屑栏 | 编辑路径/复制完整路径/粘贴路径 |
-| 右键新建文件夹按钮 | 工具栏 | 单击复制当前目录；双击复制选中项路径 |
-| 右键添加书签按钮 | 工具栏 | 选择分组添加/新建分组 |
+| Action | Area | Description |
+|--------|------|-------------|
+| Double-click a tab | Tab bar | Close that tab |
+| Click empty space | Tab bar | New tab |
+| Right-click a tab | Tab bar | Close / close others / duplicate tab |
+| Drag a tab | Tab bar | Reorder, including across panes |
+| Double-click a file | File list | Open with the system default program |
+| Double-click a folder | File list | Enter that folder |
+| Double-click empty space | File list | Go to the parent folder |
+| Right-click empty space | File list | New / paste / refresh / filter by tag |
+| Right-click a file | File list | Copy / cut / delete / rename / copy path / toggle tags / properties |
+| Drag a file | Across panes | Cross-pane file drag & drop |
+| Drag a bookmark | Bookmark tree | Move a bookmark into a group |
+| Right-click a breadcrumb | Breadcrumb bar | Edit path / copy full path / paste path |
+| Right-click the new-folder button | Toolbar | Single-click copies the current folder; double-click copies the selected item's path |
+| Right-click the add-bookmark button | Toolbar | Choose a group to add to / create a group |
 
-## 配置
+## Configuration
 
-配置文件位于程序目录，UTF-8 编码的 INI 格式：
+Configuration files live in the program directory and use UTF-8 encoded INI format:
 
-| 文件 | 说明 |
-|------|------|
-| `state.ini` | 窗口位置、布局模式、象限路径、标签页状态、更新配置、预加载开关、提示已读状态 |
-| `bookmarks.ini` | 书签树结构（分组 + 项） |
-| `commands.ini` | 工具栏菜单的自定义命令 |
-| `tags.ini` | 标签定义（名称/颜色/分组）与文件标签索引 |
+| File | Description |
+|------|-------------|
+| `state.ini` | Window position, layout mode, pane paths, tab state, update settings, preload toggles, tip read state |
+| `bookmarks.ini` | Bookmark tree structure (groups + items) |
+| `commands.ini` | Custom commands for the toolbar menu |
+| `tags.ini` | Tag definitions (name/color/group) and the file-tag index |
 
-### 设置对话框
+### Settings dialog
 
-通过菜单 `工具 → 选项` 打开设置对话框，可配置：
+Open the settings dialog from the menu `Tools → Options` to configure:
 
-| 分类 | 选项 |
-|------|------|
-| 常规 | 启动时恢复上次会话、新标签页默认路径（桌面/我的电脑/自定义）、右键菜单预加载开关、命令配置文件管理 |
-| 更新 | 自动检查更新开关、检查间隔（天）、立即检查更新 |
+| Category | Options |
+|----------|---------|
+| General | Restore the previous session on startup, default path for new tabs (Desktop / This PC / custom), context-menu preload toggle, command configuration file management |
+| Updates | Automatic update check toggle, check interval (days), check for updates now |
 
-### 自定义命令
+### Custom commands
 
-点击工具栏终端按钮弹出命令菜单，命令按 `commands.ini` 配置执行。
+Click the terminal button on the toolbar to open the command menu; commands run as configured in `commands.ini`.
 
-管理入口：`工具 → 选项 → 常规 → 编辑命令...`（图形化管理界面，支持增删改查/排序/复制）
+Manage them at `Tools → Options → General → Edit Commands...` (a graphical editor supporting add/edit/delete/reorder/duplicate).
 
-支持占位符：
+Supported placeholders:
 
-| 占位符 | 说明 |
-|--------|------|
-| `{cwd}` | 当前标签目录 |
-| `{sel}` | 当前列表首个选中项完整路径（无选中时为空） |
-| `{name}` | `{sel}` 的文件名（无选中时为空） |
+| Placeholder | Description |
+|-------------|-------------|
+| `{cwd}` | Current tab directory |
+| `{sel}` | Full path of the first selected item in the current list (empty when nothing is selected) |
+| `{name}` | File name of `{sel}` (empty when nothing is selected) |
 
-命令配置示例：
+Example command configuration:
 
 ```ini
 [Command0]
-name=Code 打开当前目录
+name=Open current folder in Code
 program=code
 args="{cwd}"
 confirm=0
 enabled=1
 ```
 
-安全策略：`confirm=1` 时强制执行前确认；未强制确认时，若命令包含高风险关键词（`del`、`rd`、`format` 等）也会弹确认。
+Security policy: `confirm=1` always requires confirmation before execution; even when confirmation is not forced, a command containing high-risk keywords (`del`, `rd`, `format`, etc.) still triggers a confirmation prompt.
 
-## 构建
+## Build
 
-### 依赖
+### Requirements
 
-- **编译器**: MinGW-w64 (GCC) 或 Clang（推荐，速度快）
-- **构建系统**: CMake + Ninja
-- **系统**: Windows 7+
+- **Compiler**: MinGW-w64 (GCC) or Clang (recommended — faster)
+- **Build system**: CMake + Ninja
+- **OS**: Windows 7+
 
-### 编译
+### Compiling
 
 ```powershell
-# GCC 编译
-.\scripts\build.ps1                           # Debug 构建（默认）
-.\scripts\build.ps1 -Configuration Release    # Release 构建
+# GCC build
+.\scripts\build.ps1                           # Debug build (default)
+.\scripts\build.ps1 -Configuration Release    # Release build
 
-# Clang 编译（推荐）
-.\scripts\build-clang.ps1                          # Debug 构建（默认）
-.\scripts\build-clang.ps1 -Configuration Release   # Release 构建
+# Clang build (recommended)
+.\scripts\build-clang.ps1                          # Debug build (default)
+.\scripts\build-clang.ps1 -Configuration Release   # Release build
 
-# 全新编译（删除 build 目录后重建）
+# Clean build (delete the build directory and rebuild)
 .\scripts\build.ps1 -Clean
 .\scripts\build-clang.ps1 -Clean
 ```
 
-### 静态分析
+### Static analysis
 
 ```powershell
-# clang-tidy 检查
+# clang-tidy checks
 .\tests\clang-tidy\tidy.ps1
 
-# Cppcheck 检查（含 MISRA C 规则）
+# Cppcheck (includes MISRA C rules)
 .\tests\cppcheck\cppcheck_run.ps1
 ```
 
-## 许可证
+## License
 
 [MPL 2.0 License](LICENSE)
