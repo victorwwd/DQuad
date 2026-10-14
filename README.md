@@ -25,7 +25,7 @@ A lightweight Windows file manager with flexible multi-pane layouts, tabs, bookm
 - **Tabs** — An independent tab bar per pane, with new/close/switch, drag-to-reorder, duplicate tab, close others, and history navigation
 - **Bookmarks** — Grouping, drag-to-reorder, import/export
 - **File tags** — NTFS ADS–based file tagging with colors and groups, a tag manager, filter by tag, and find files by tag
-- **Everything search** — Integrated Everything whole-disk search engine (`Ctrl+F`, or the search button at the right of the address bar: left-click searches the current folder, right-click searches all drives). Supports regex, case-sensitive, and whole-word matching; double-click a result to open it or reveal its folder
+- **Everything search** — Integrated Everything whole-disk search engine (`Ctrl+F`, or the search button at the right of the address bar: left-click searches the current folder, right-click searches all drives). Supports regex, case-sensitive, and whole-word matching. Results have four columns (Name / Folder / Type / Size): click a column header to sort, double-click to open, or right-click to open the containing folder (reveals and selects it), copy the path, or copy the file name
 - **Image preview** — Asynchronous image thumbnail loading in large-icon view, with viewport-aware progressive loading
 - **Breadcrumb navigation** — Segmented path display; click any parent folder to jump to it, right-click to edit, copy, or paste a path
 - **File operations** — Copy, cut, paste, delete, and rename, plus cross-pane file drag & drop, with no limit on the number of files
@@ -37,7 +37,7 @@ A lightweight Windows file manager with flexible multi-pane layouts, tabs, bookm
 - **UNC network paths** — Access `\\server\share` paths, with asynchronous reachability checks
 - **Encrypted file detection** — Asynchronously detects files encrypted by encryption software and marks them with a lock icon
 - **Directory monitoring** — Automatic refresh on file changes (via `ReadDirectoryChangesW`)
-- **Settings dialog** — Session restore, default paths, context-menu preloading, automatic updates, and more
+- **Settings dialog** — Session restore, default paths, context-menu preloading, smart paste, shell integration, automatic updates, and more
 - **State persistence** — Window layout, tab state, and view settings are saved automatically
 - **Crash protection** — VEH/UEH exception handling plus watchdog hang detection, with automatic minidump generation
 - **Automatic updates** — Check for and download new releases from GitHub
@@ -61,6 +61,7 @@ Download the latest `DQuad.exe` from [Releases](https://github.com/victorwwd/DQu
 | `Ctrl+C/X/V` | Copy / cut / paste |
 | `Ctrl+Shift+C` | Copy the full path of the selection (copies the current folder when nothing is selected) |
 | `Ctrl+A` | Select all |
+| `Space` | QuickLook preview of the selected item |
 | `F2` | Rename |
 | `F5` | Refresh |
 | `Del` | Delete to Recycle Bin |
@@ -82,6 +83,7 @@ Download the latest `DQuad.exe` from [Releases](https://github.com/victorwwd/DQu
 | Double-click empty space | File list | Go to the parent folder |
 | Right-click empty space | File list | New / paste / refresh / filter by tag |
 | Right-click a file | File list | Copy / cut / delete / rename / copy path / toggle tags / properties |
+| Click a column header | File list | Sort by that column |
 | Drag a file | Across panes | Cross-pane file drag & drop |
 | Drag a bookmark | Bookmark tree | Move a bookmark into a group |
 | Right-click a breadcrumb | Breadcrumb bar | Edit path / copy full path / paste path |
@@ -105,8 +107,9 @@ Open the settings dialog from the menu `Tools → Options` to configure:
 
 | Category | Options |
 |----------|---------|
-| General | Restore the previous session on startup, default path for new tabs (Desktop / This PC / custom), context-menu preload toggle, command configuration file management |
+| General | Restore the previous session on startup, default path for new tabs (Desktop / This PC / custom), context-menu preload toggle, smart paste (save clipboard image/text as a file when pasting), command configuration file management |
 | Updates | Automatic update check toggle, check interval (days), check for updates now |
+| Integration | Take over the system's folder-open handler, add "Open in DQuad" to the folder context menu (writes to the current user's HKCU registry only; clearing the checkbox removes it) |
 
 ### Custom commands
 
